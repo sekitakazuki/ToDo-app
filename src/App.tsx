@@ -1,12 +1,12 @@
 // src/App.tsx
 import { useState } from 'react';
 import type { FormEvent } from 'react';
-import Filter from '/src/components/Filter';
+import Filter from './components/Filter';
 import './App.css';
 import Title from './components/Title';
 import AddTask from './components/AddTask';
 import TaskList from './components/TaskList';
-import type { Task } from './types';
+import type { Task ,FilterType} from './types';
 
 function App() {
   const [inputTask, setInputTask] = useState('');
@@ -55,6 +55,7 @@ function App() {
           setInputTask={setInputTask}
           handleSubmit={handleSubmit}
         />
+        <Filter value={filter} onChange={setFilter} />
         <TaskList
           taskList={taskList}
           handleTaskChange={handleTaskChange}
